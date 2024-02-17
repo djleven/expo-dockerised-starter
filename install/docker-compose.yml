@@ -1,0 +1,8 @@
+version: '3'
+services:
+   my_expo_app:
+    build: ./
+    image: ${APP_NAME}
+    volumes:
+         - ../src/:/usr/app/ # Link host directory to container
+    command:  bash -c "npx create-expo-app ${APP_NAME} --template ${EXPO_TEMPLATE} && mv ./${APP_NAME}/* . && rm -r ./${APP_NAME}"
